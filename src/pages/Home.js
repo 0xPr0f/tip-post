@@ -16,15 +16,22 @@ export const Home = () => {
             Create post. Share your link. Recieve tips on how good it is. It's
             easier than you think.
           </p>
-
-          <ConnectButton
-            showBalance={false}
-            chainStatus={{ smallScreen: "icon", largeScreen: "icon" }}
-            accountStatus={{
-              smallScreen: "avatar",
-              largeScreen: "full",
+          <div
+            style={{
+              margin: "auto",
+              padding: "2em 0em",
+              width: "fit-content",
             }}
-          />
+          >
+            <ConnectButton
+              showBalance={false}
+              chainStatus={{ smallScreen: "icon", largeScreen: "icon" }}
+              accountStatus={{
+                smallScreen: "avatar",
+                largeScreen: "full",
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
