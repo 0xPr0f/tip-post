@@ -13,7 +13,6 @@ import { useAccount, useSigner, erc20ABI } from "wagmi";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { ethers } from "ethers";
-import { parseUnits } from "ethers/lib/utils";
 
 export const PostView = () => {
   const { post_id } = useParams();
