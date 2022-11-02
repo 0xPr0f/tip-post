@@ -14,19 +14,18 @@
         justify-content: space-between;
         gap: 1em;
 
-        button {
+        .button {
             outline: none;
             border: none;
-            border-radius: 30px;
+            border-radius: 12px;
             background-color: rgb(13,118,252);
             color: #ffffff;
-            padding: 0.8em;
+            padding: 0.5em 0.8em;
             cursor: pointer;
             font-size: 0.9em;
             cursor: pointer;
-            width:30%;
-        
-            &.disabled {
+            margin: 0.1em;
+            &disabled {
               background-color: #bfa0f2;
               cursor: not-allowed;
             }
@@ -41,9 +40,8 @@
     }
 }
 
-button:hover {
+.button:hover {
     transition: margin 0.2s ease-in-out;
-    margin-top: -.5em;
 }
 
 

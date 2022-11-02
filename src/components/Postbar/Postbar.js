@@ -20,7 +20,23 @@ export const Postbar = ({ postname, postid, postdescription }) => {
               : postdescription}
           </span>
         </div>
-        <button onClick={navigateToPosts}>view post</button>
+        <div style={{ border: "2px solid black" }}>
+          <button
+            style={{ width: "100%" }}
+            className={styles.button}
+            onClick={navigateToPosts}
+          >
+            View Post
+          </button>
+          <br />
+          <button
+            style={{ width: "100%" }}
+            className={styles.button}
+            onClick={navigateToPosts}
+          >
+            Share
+          </button>
+        </div>
       </div>
     </div>
   );
