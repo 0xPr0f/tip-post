@@ -13,7 +13,7 @@ export const Home = () => {
         <div className={styles.Info}>
           <h1>Mint blog posts and get tipped online</h1>
           <p>
-            Create post. Share your link. Recieve tips on how good it is It's
+            Create post. Share your link. Recieve tips on how good it is. It's
             easier than you think.
           </p>
           <div
