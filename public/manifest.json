@@ -3,19 +3,9 @@
   "name": "Tip Post",
   "icons": [
     {
-      "src": "https://gateway.pinata.cloud/ipfs/QmcwGZeLeWUNYrsCxa3nFvtftQ7cuFeqCoy8LgPiMS4QGg",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "https://gateway.pinata.cloud/ipfs/QmcwGZeLeWUNYrsCxa3nFvtftQ7cuFeqCoy8LgPiMS4QGg",
+      "src": "translogo.png",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "https://gateway.pinata.cloud/ipfs/QmcwGZeLeWUNYrsCxa3nFvtftQ7cuFeqCoy8LgPiMS4QGg",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "256x98"
     }
   ],
   "start_url": ".",
