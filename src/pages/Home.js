@@ -24,8 +24,6 @@ export const Home = () => {
             }}
           >
             <ConnectButton
-              showBalance={false}
-              chainStatus={{ smallScreen: "icon", largeScreen: "icon" }}
               accountStatus={{
                 smallScreen: "avatar",
                 largeScreen: "full",

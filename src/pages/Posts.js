@@ -6,13 +6,16 @@ import Navbar from "../components/Navbar/Navbar";
 import { Postbar } from "../components/Postbar/Postbar";
 import styles from "./styles/Post.module.scss";
 import { NFTStorage } from "nft.storage";
-import { useAccount } from "wagmi";
+import { useAccount, useSigner } from "wagmi";
 import Moralis from "moralis-v1";
 import { Store } from "react-notifications-component";
+import { ethers } from "ethers";
+import { BlogNFTABI, BlogNFTAddress } from "./utils";
 
 export const Posts = () => {
   const [showCreatePostModal, setShowCreatePostModal] = useState(false);
   const { address, isConnected } = useAccount();
+  const { data: signer } = useSigner();
   const [postName, setPostName] = useState("");
   const [postDescription, setPostDescription] = useState("");
   const [postBanner, setPostBanner] = useState("");
@@ -98,6 +101,31 @@ export const Posts = () => {
     */
   };
 
+  const Mint = async (tokenUri) => {
+    const BlogNFTContract = new ethers.Contract(
+      BlogNFTAddress,
+      BlogNFTABI,
+      signer
+    );
+    try {
+      const createtoken = await BlogNFTContract.createToken(tokenUri);
+      await createtoken.wait();
+      resetPostDetails();
+      setLoadingButton(false);
+      setShowCreatePostModal(false);
+      sendNotification(
+        "Post minted",
+        "successfully minted your post",
+        "success"
+      );
+      return;
+    } catch (e) {
+      sendNotification("Mint failed", "failed to mint your post", "danger");
+      setLoadingButton(false);
+      return;
+    }
+  };
+
   const SavePost = async () => {
     if (!isConnected) {
       return;
@@ -122,10 +150,12 @@ export const Posts = () => {
         "Metadata URI: ",
         metadata.url.replace("ipfs://", "https://nftstorage.link/ipfs/")
       );
+
       const ipfsdata = metadata.url.replace(
         "ipfs://",
         "https://nftstorage.link/ipfs/"
       );
+      Mint(ipfsdata);
       const PostTestData = Moralis.Object.extend("PostTestData");
       const postTestData = new PostTestData();
       postTestData.set("postTitle", postName);
@@ -133,23 +163,18 @@ export const Posts = () => {
       postTestData.set("postBanner", imageUrl);
       postTestData.set("postCreator", address);
       postTestData.set("postIPFSdata", ipfsdata);
-
       postTestData.save().then(
         (postTestData) => {
-          setLoadingButton(false);
           sendNotification(
             "Successfully created post",
             "successfully created and saved post data to IPFS",
-            "default"
+            "success"
           );
-          resetPostDetails();
-          setShowCreatePostModal(false);
-          // Execute any logic that should take place after the object is saved.
+
           console.log("New object created with objectId: " + postTestData.id);
           console.log(
             "New object created with route : " + `/posts/${postTestData.id}`
           );
-          //  navigate(`/grants/${dataQuery.length + 1}/${routeName}`);
         },
         (error) => {
           sendNotification(
@@ -193,12 +218,10 @@ export const Posts = () => {
   const QueryData = async () => {
     const PostTestData = Moralis.Object.extend("PostTestData");
     const postTestData = new PostTestData();
-    console.log("checking ...");
     const postTestDataquery = new Moralis.Query(postTestData);
     postTestDataquery.equalTo("postCreator", address);
     const addressQuery = await postTestDataquery.find();
     setData(addressQuery);
-    console.log(data);
   };
 
   const sendNotification = (title, message, type) => {
@@ -229,11 +252,27 @@ export const Posts = () => {
           className={styles.buttonFIX}
           onClick={() => {
             setShowCreatePostModal(true);
-            console.log("createpost");
+            console.log("created post");
           }}
           style={{ float: "right", marginTop: "1.7em" }}
         >
-          + create post
+          <svg
+            width="20px"
+            height="20px"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 4.5v15m7.5-7.5h-15"
+            />
+          </svg>
+          &nbsp; create post
         </button>
       </div>
       <div style={{ padding: "3em" }}></div>
@@ -269,7 +308,6 @@ export const Posts = () => {
               </Typography>
               {/*} <Badge bg="secondary">required</Badge> */}
             </div>
-            {console.log(data)}
             <InputGroup className="mb-3">
               <Form.Control
                 spellCheck={false}
@@ -342,7 +380,7 @@ export const Posts = () => {
             onClick={!isLoadingButton ? SavePost : null}
             variant="outline-primary"
           >
-            {isLoadingButton ? "Creating post…" : "Save and Create Post"}
+            {isLoadingButton ? "Creating post…" : "Create and Mint Post"}
           </Button>
           <Button
             onClick={() => {

@@ -1,5 +1,5 @@
 .Postbarborder{
- border: 2px solid black;
+ border: 2px solid rgb(92, 100, 111);
     border-radius: 20px;
     margin-bottom: 1.5em;
     min-height: 100px;
@@ -35,13 +35,17 @@
              display: flex;
              flex-direction: column;
              align-items: flex-start;
+             width: 80%;
         }
 
     }
 }
 
 .button:hover {
-    transition: margin 0.2s ease-in-out;
+  transition: margin 0.5s ease-in-out;
+    transform:scale(1.08,1.08);
+    -webkit-transform:scale(1.08,1.08);
+    -moz-transform:scale(1.08,1.08);
 }
 
 

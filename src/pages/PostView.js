@@ -99,7 +99,7 @@ export const PostView = () => {
       .request(options)
       .then(function (response) {
         setTokenData(response.data);
-        console.log(response.data);
+        //  console.log(response.data);
       })
       .catch(function (error) {
         sendNotification(
@@ -182,6 +182,8 @@ export const PostView = () => {
         <div>
           {IPFSdata && IPFSdata.image ? (
             <img
+              height="300px"
+              width="80%"
               src={IPFSdata.image.replace(
                 "ipfs://",
                 "https://nftstorage.link/ipfs/"
