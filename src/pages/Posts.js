@@ -11,6 +11,7 @@ import Moralis from "moralis-v1";
 import { Store } from "react-notifications-component";
 import { ethers } from "ethers";
 import { BlogNFTABI, BlogNFTAddress } from "./utils";
+import { useNavigate } from "react-router-dom";
 
 export const Posts = () => {
   const [showCreatePostModal, setShowCreatePostModal] = useState(false);
@@ -26,6 +27,7 @@ export const Posts = () => {
   const [data, setData] = useState([]);
   const [isLoadingButton, setLoadingButton] = useState(false);
 
+  const navigate = useNavigate();
   const resetPostDetails = () => {
     setPostName("");
     setPostDescription("");
@@ -251,8 +253,12 @@ export const Posts = () => {
         <button
           className={styles.buttonFIX}
           onClick={() => {
-            setShowCreatePostModal(true);
-            console.log("created post");
+            if (isConnected) {
+              setShowCreatePostModal(true);
+              console.log("create post modal");
+            } else {
+              navigate("/");
+            }
           }}
           style={{ float: "right", marginTop: "1.7em" }}
         >
@@ -272,7 +278,7 @@ export const Posts = () => {
               d="M12 4.5v15m7.5-7.5h-15"
             />
           </svg>
-          &nbsp; create post
+          &nbsp; Create Post
         </button>
       </div>
       <div style={{ padding: "3em" }}></div>
