@@ -10,7 +10,10 @@ function Navbar() {
   return (
     <nav className={styles.Navbar}>
       <h3>TIP-POST</h3>
-      <div className={styles.Links}>
+      <div
+        className={styles.Links}
+        style={isConnected ? { width: "32%" } : null}
+      >
         {/*}  {isAuthenticated && isRegisteredUser ? ( */}
         {isConnected ? <Link to={"/posts"}>Posts</Link> : null}
         {/*isConnected ? <Link to={"/messages"}>Messages</Link> : null */}

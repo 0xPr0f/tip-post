@@ -23,6 +23,7 @@ import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import { BrowserRouter as Router } from "react-router-dom";
 import { MoralisProvider } from "react-moralis";
+import Footer from "./components/Footer/Footer";
 
 const { chains, provider } = configureChains(
   [chain.polygonMumbai],
@@ -73,6 +74,7 @@ root.render(
           >
             <ReactNotifications />
             <App />
+            <Footer />
           </MoralisProvider>
         </Router>
       </RainbowKitProvider>
