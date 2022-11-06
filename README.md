@@ -1,12 +1,38 @@
 # TIP-POST
 
+## Project details
+
+TIPPOST is a REFI crowdfunding application where creators can share their work (nft, image art, blog, talks) and get tipped by viewers who enjoy the content, the post are minted as NFT on the blockchain and can be burned, NFT.sotage was used for storing the metadata of the nft and we also fetch the netdata to display the nft and it details.
+### Project info
+
+project created by 0xprof
+
+- This project is built on top of NFT.storage to store the metadata of the posts created.  
+
+```js
+const postStructure = {
+        image: blob/file,
+        name: string,
+        description: string,
+        properties: {
+          type: "blog-post",
+          authors: [{ authoraddress: string }],
+          details: {
+            tippable: bool,
+          },
+        },
+      };
+```
+
+https://github.com/0xPr0f/tip-post/blob/855cd20ea98f93f4044ade24059165c5f266943b/src/pages/Posts.js#L37
+https://github.com/0xPr0f/tip-post/blob/855cd20ea98f93f4044ade24059165c5f266943b/src/pages/Posts.js#L150
+
+- This project is deployed on the polygon mumbai blockchain and takes advantage of the fast transaction time & low gas cost it has.
+
 ### Contract deployment
 
 [contract on mumbai](https://mumbai.polygonscan.com/address/0x3D3A2148b288622Cabe65Fe9b65052D64361CEF8)
 
-## Project details
-
-TIPPOST is a REFI crowdfunding application where creators can share their work (nft, image art, blog, talks) and get tipped by viewers who enjoy the content, the post are minted as NFT on the blockchain and can be burned, NFT.sotage was used for storing the metadata of the nft and we also fetch the netdata to display the nft and it details.
 
 ## Running the app
 
