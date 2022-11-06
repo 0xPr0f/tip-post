@@ -7,7 +7,7 @@ TIPPOST is a REFI crowdfunding application where creators can share their work (
 
 project created by 0xprof
 
-- This project is built on top of NFT.storage to store the metadata of the posts created.  
+- This project is built on top of NFT.storage to store the metadata of the posts created as individual NFTs.  
 
 ```js
 const postStructure = {
