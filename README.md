@@ -24,7 +24,7 @@ const postStructure = {
       };
 ```
 
-https://github.com/0xPr0f/tip-post/blob/855cd20ea98f93f4044ade24059165c5f266943b/src/pages/Posts.js#L37-40
+https://github.com/0xPr0f/tip-post/blob/855cd20ea98f93f4044ade24059165c5f266943b/src/pages/Posts.js#L39
 https://github.com/0xPr0f/tip-post/blob/855cd20ea98f93f4044ade24059165c5f266943b/src/pages/Posts.js#L150
 
 - This project is deployed on the polygon mumbai blockchain and takes advantage of the fast transaction time & low gas cost it has.
