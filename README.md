@@ -2,7 +2,7 @@
 
 ## Project details
 
-TIPPOST is a REFI crowdfunding application where creators can share their work (nft, image art, blog, talks) and get tipped by viewers who enjoy the content, the post are minted as NFT on the blockchain and can be burned, NFT.sotage was used for storing the metadata of the nft and we also fetch the netdata to display the nft and it details.
+TIPPOST is a REFI crowdfunding application where creators can share their work (nft, image art, blog, talks) and get tipped by viewers who enjoy the content, the post are minted as NFT on the blockchain and can be burned, NFT.storage was used for storing the metadata of the nft and we also fetch the netdata to display the nft and it details.
 ### Project info
 
 project created by 0xprof
@@ -33,6 +33,9 @@ https://github.com/0xPr0f/tip-post/blob/855cd20ea98f93f4044ade24059165c5f266943b
 
 [contract on mumbai](https://mumbai.polygonscan.com/address/0x3D3A2148b288622Cabe65Fe9b65052D64361CEF8)
 
+### Submission video 
+
+### https://youtu.be/lkjacVEXw64
 
 ## Running the app
 
